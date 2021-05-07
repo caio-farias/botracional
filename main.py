@@ -21,7 +21,7 @@ def get_random_verse():
     verses = f.read().split("-")
     f.close()
     verse = random.choice(verses)
-    verse += "\n" + "Compositor: Sebastião Maia" 
+    # verse += "\n" + "Compositor: Sebastião Maia" 
     return verse
 
 
@@ -48,7 +48,7 @@ count = 0
 while(True):
     choice = random.randint(0,1)
     if(choice > 0):
-        content = get_random_phrase("output.txt")
+        content = get_random_phrase("./books/universo_em_desencanto_vol152.txt")
     else:
         content = get_random_verse()
     tweet(api, content)
