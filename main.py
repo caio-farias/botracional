@@ -9,7 +9,7 @@ def get_random_phrase(file):
     f.close()
     phrase = ""
     while(len(phrase) == 0 or len(phrase) > 280):
-        phrase = random.choice(phrases) + "."
+        phrase = random.choice(phrases)
     return phrase
 
 def get_random_verse():
@@ -55,5 +55,5 @@ while(True):
     count += 1
     print(f"Tweet number {count}!")
     print("Sleeping... zzz")
-    sleep(300)
+    sleep(1200)
     print("Woke up!")
