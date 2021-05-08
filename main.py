@@ -20,8 +20,9 @@ def get_random_verse():
     f = open(final_path, "r", encoding="utf8")
     verses = f.read().split("-")
     f.close()
-    verse = random.choice(verses)
-    # verse += "\n" + "Compositor: Sebastião Maia" 
+    verse = ""
+    while(len(verse) == 0 or len(verse) > 280):
+        verse = random.choice(verses)
     return verse
 
 
@@ -53,7 +54,10 @@ while(True):
         content = get_random_verse()
     tweet(api, content)
     count += 1
-    print(f"Tweet number {count}!")
+    if(choice>0):
+        print(f"{count}: Tweet book excerpt!")
+    else:
+        print(f"{count}: Tweet lyrics!")
     print("Sleeping... zzz")
     sleep(1200)
     print("Woke up!")
