@@ -39,8 +39,8 @@ def tweet(api, message):
 def update_description(api, message):
     api.update_profile(description=message)
 
-def start_bot(api):
-    count = 0
+def start_bot(api, tweet_count):
+    count = tweet_count
     while(True):
         print("-----------------------------------------------")
         choice = random.randint(0,1)
@@ -68,5 +68,5 @@ ACCESS_TOKEN        = token[2]
 ACCESS_TOKEN_SECRET = token[3]
 
 api = auth(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-
-start_bot(api)
+tweet_count = len(api.home_timeline())
+start_bot(api, tweet_count)
