@@ -3,8 +3,10 @@ import random
 from time import sleep
 import os
 
-def get_random_phrase(file):
-    f = open(file, "r", encoding="utf8")
+def get_random_phrase():
+    books = os.listdir('./books')
+    path = './books/' + random.choice(books)
+    f = open(path, "r", encoding="utf8")
     phrases = f.read().split(".")
     f.close()
     phrase = ""
@@ -37,6 +39,27 @@ def tweet(api, message):
 def update_description(api, message):
     api.update_profile(description=message)
 
+def start_bot(api):
+    count = 0
+    while(True):
+        print("-----------------------------------------------")
+        choice = random.randint(0,1)
+        if(choice > 0):
+            content = get_random_phrase()
+        else:
+            content = get_random_verse()
+        print("Using Twitter API...")
+        tweet(api, content)
+        print("Done...")
+        count += 1
+        if(choice>0):
+            print(f"{count}: Tweet book excerpt!")
+        else:
+            print(f"{count}: Tweet lyrics!")
+        print("Sleeping... zZzZz")
+        sleep(1200)
+        print("Woke up!")
+
 token = open('tokens.txt','r').read().splitlines()
 
 API_KEY             = token[0]
@@ -45,19 +68,5 @@ ACCESS_TOKEN        = token[2]
 ACCESS_TOKEN_SECRET = token[3]
 
 api = auth(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-count = 0
-while(True):
-    choice = random.randint(0,1)
-    if(choice > 0):
-        content = get_random_phrase("./books/universo_em_desencanto_vol152.txt")
-    else:
-        content = get_random_verse()
-    tweet(api, content)
-    count += 1
-    if(choice>0):
-        print(f"{count}: Tweet book excerpt!")
-    else:
-        print(f"{count}: Tweet lyrics!")
-    print("Sleeping... zzz")
-    sleep(1200)
-    print("Woke up!")
+
+start_bot(api)
