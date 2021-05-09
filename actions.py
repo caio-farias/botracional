@@ -41,5 +41,5 @@ def start_bot(api, tweet_count):
         except tweepy.errors.TweepyException as e:
             print("Error!")
         print("Sleeping... zZzZz")
-        sleep(1200)
+        sleep(1800) # 42 times per day
         print("Woke up!")
