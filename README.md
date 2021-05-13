@@ -1,8 +1,8 @@
 # b o t - r a c i o n a l
-Este bot é especialista em tweetar versos de letras do Tim Maia(na fase racional) e frases de livros da série Universo em Desencanto. 
+    Este bot é especialista em tweetar versos de letras do Tim Maia(na fase racional) e frases de livros da série Universo em Desencanto. 
 
 # o b j e t i v o
-T R A N S C E N  D E R
+    T R A N S C E N  D E R
 
 # T O K E N S
     dYj5Bg4ZtlBu8H6WzBCNFQn7F
@@ -15,8 +15,8 @@ T R A N S C E N  D E R
 
     AAAAAAAAAAAAAAAAAAAAAIY7PQEAAAAACqnqjaaYTAYrrzKjuQSnlYSIXgc%3DTB96FgOMvBbebntvPfu6XUr7RhdGE7lOtq79Of618SyBIZFgeo
 
-API_KEY
-API_SECRET_KEY
-ACCESS_TOKEN
-ACCESS_TOKEN_SECRET
-BEARER_TOKEN
+    API_KEY
+    API_SECRET_KEY
+    ACCESS_TOKEN
+    ACCESS_TOKEN_SECRET
+    BEARER_TOKEN
