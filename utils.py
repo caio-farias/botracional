@@ -1,5 +1,6 @@
 import os
 import random
+from time import sleep
 
 def get_random_phrase():
     books = os.listdir('./books')
@@ -24,3 +25,13 @@ def get_random_verse():
     while(len(verse) == 0 or len(verse) > 280):
         verse = random.choice(verses)
     return verse
+
+def progress(time):
+    length = 10
+    placeholder = '------------'
+    o = ''
+    for ii in range(length):
+        o = '#' + o[0:ii] + placeholder[ii+2:length] + f'  {(ii+1)*length}%'
+        print(o, end='\r')
+        sleep(time//length)
+    print('')
