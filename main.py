@@ -1,14 +1,25 @@
-import actions
+from src.actions import auth, user_info, start_bot
+from src.utils.prep_utils import get_tokens, prepare_logs_dir
 
-token = open('tokens.txt','r').read().splitlines()
+def main():
+  prepare_logs_dir()
 
-API_KEY             = token[0]
-API_SECRET_KEY      = token[1]
-ACCESS_TOKEN        = token[2]
-ACCESS_TOKEN_SECRET = token[3]
+  tokens = get_tokens()
 
-api = actions.auth(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-t = api.home_timeline(count=1, exclude_replies=True)
-tweet_count = t[0].__dict__["user"].statuses_count
-# tweet_count = 0
-actions.start_bot(api, tweet_count)
+  API_KEY             = tokens['API_KEY']
+  API_KEY_SECRET      = tokens['API_KEY_SECRET']
+  ACCESS_TOKEN        = tokens['ACCESS_TOKEN']
+  ACCESS_TOKEN_SECRET = tokens['ACCESS_TOKEN_SECRET']
+
+  api = auth(API_KEY, API_KEY_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+  t = api.home_timeline()
+  user = api.get_user('botracional')
+  user_info(user)
+  try:
+    tweet_count = t[0].__dict__["user"].statuses_count
+  except:
+    tweet_count = 0
+  start_bot(api, tweet_count)
+
+if __name__ == 'main.py':
+  main()
