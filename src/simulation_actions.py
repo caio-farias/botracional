@@ -1,5 +1,5 @@
-from utils import exec_utils
-from utils.aux_utils import progress
+from src.utils import exec_utils
+from src.utils.aux_utils import progress
 from random import randrange
 
 def start():
@@ -15,7 +15,7 @@ def start():
     print_count_message(choice, count + 1, content)
     count += 1
     print("Sleeping... zZzZz")
-    progress(450) #1800s = 42 times per day
+    progress(10) #1800s = 42 times per day
     exec_utils.register_tweet(content)
     print("Woke up!")
       

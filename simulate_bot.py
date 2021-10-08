@@ -5,6 +5,4 @@ def main():
   prepare_logs_dir()
   start()
 
-
-if __name__ == 'main.py':
-  main()
+main()
