@@ -3,16 +3,16 @@ from random import randint, choice
 from datetime import datetime
 
 def increment_repeated_tweets(file='repeated_tries_count.txt'):
-  count = open(f'../logs/{file}','r').read()
+  count = open(f'./logs/{file}','r').read()
   count = int(count)
-  f = open(f'../logs/{file}','w', encoding='utf-8')
+  f = open(f'./logs/{file}','w', encoding='utf-8')
   f.write(str(count+1)) 
   f.close()
 
 def verify_tweet_existence(content):
   content = content.strip().replace(' ', '').replace('\n', '')
   day = datetime.now().weekday() + 1 
-  tweets_content = open(f'../logs/{day}.txt','r').read().split('#')
+  tweets_content = open(f'./logs/{day}.txt','r').read().split('#')
   if(content not in tweets_content):
     return
   increment_repeated_tweets()
@@ -27,14 +27,14 @@ def verify_tweet_existence(content):
 def register_tweet(content):
   content = content.strip().replace(' ', '').replace('\n', '')
   day = datetime.now().weekday() + 1
-  log = open(f'../logs/{day}.txt', 'r', encoding='utf-8').read()
-  f = open(f'../logs/{day}.txt','w', encoding='utf-8')
+  log = open(f'./logs/{day}.txt', 'r', encoding='utf-8').read()
+  f = open(f'./logs/{day}.txt','w', encoding='utf-8')
   f.write(log + content + '#') 
   f.close()
 
 def get_random_phrase():
-  books = listdir('../content_collection/books')
-  path = '../content_collection/books/' + choice(books)
+  books = listdir('./content_collection/books')
+  path = './content_collection/books/' + choice(books)
   f = open(path, "r", encoding="utf8")
   phrases = f.read().split(".")
   f.close()
@@ -44,8 +44,8 @@ def get_random_phrase():
   return phrase
 
 def get_random_verse():
-  albuns = listdir('../content_collection/lyrics')
-  path = '../content_collection/lyrics/' + choice(albuns)
+  albuns = listdir('./content_collection/lyrics')
+  path = './content_collection/lyrics/' + choice(albuns)
   track = choice(listdir(path))
   final_path = path + '/' + track
   f = open(final_path, "r", encoding="utf8")

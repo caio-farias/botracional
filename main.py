@@ -21,5 +21,5 @@ def main():
     tweet_count = 0
   start_bot(api, tweet_count)
 
-if __name__ == 'main.py':
+if __name__ == '__main__':
   main()

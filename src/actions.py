@@ -1,5 +1,5 @@
-from utils import exec_utils
-from utils.aux_utils import progress
+from src.utils import exec_utils
+from src.utils.aux_utils import progress
 from tweepy import API, OAuthHandler
 from random import randint
 from threading import Thread
