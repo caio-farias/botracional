@@ -53,9 +53,9 @@ def start_bot(api, tweet_count):
       tweet_thread.start()
       tweet_thread.join()
       count += 1
+      exec_utils.register_tweet(content)
       print("Sleeping... zZzZz")
       progress(450) #1800 42 times per day (seconds)
-      exec_utils.register_tweet(content)
       print("Woke up!")
     except:
       print("Error!")
