@@ -4,27 +4,31 @@ from tweepy import API, OAuthHandler
 from random import randint
 from threading import Thread
 
+
 def auth(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET):
   try:
     auth = OAuthHandler(API_KEY, API_SECRET_KEY)
     auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     return API(auth)
-  except:
+  except Exception:
     return None
+
 
 def tweet(api, message):
   print("Tweeting content..")
   try:
     api.update_status(message)
     print("Preparing to sleep.. ")
-  except:
+  except Exception:
     print("Error! Tweeting failed..")
+
 
 def update_description(api, message):
   try:
     api.update_profile(description=message)
-  except:
+  except Exception:
     print("Profile's update failed..")
+
 
 def print_count_message(choice, count, content):
   if(choice > 0):
@@ -37,11 +41,12 @@ def print_count_message(choice, count, content):
     print(content)
   print("-----------------------------------------------")
 
+
 def start_bot(api, tweet_count):
   count = tweet_count
   while(True):
     print("-----------------------------------------------")
-    choice = randint(0,1)
+    choice = randint(0, 1)
     if(choice > 0):
         content = exec_utils.get_random_phrase()
     else:
@@ -55,10 +60,11 @@ def start_bot(api, tweet_count):
       count += 1
       exec_utils.register_tweet(content)
       print("Sleeping... zZzZz")
-      progress(450) #1800 42 times per day (seconds)
+      progress(450)
       print("Woke up!")
-    except:
+    except Exception:
       print("Error!")
+
 
 def user_info(user):
   try:
@@ -67,7 +73,5 @@ def user_info(user):
     print("Favourites Count:", user.favourites_count)
     print("Followers Count:", user.followers_count)
     print("Tweet Account:", f'https://twitter.com/{user.screen_name}')
-  except:
+  except Exception:
     print("Error, authentication failed..")
-
-
