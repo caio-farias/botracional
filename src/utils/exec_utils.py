@@ -13,7 +13,7 @@ def increment_repeated_tweets(file='repeated_tries_count.txt'):
 
 def verify_tweet_existence(content):
   content = content.strip().replace(' ', '').replace('\n', '')
-  day = datetime.now().weekday() + 1
+  day = (datetime.now().weekday() + 1) % 7
   tweets_content = open(f'./logs/{day}.txt', 'r').read().split('#')
 
   if(content not in tweets_content):
@@ -31,7 +31,7 @@ def verify_tweet_existence(content):
 
 def register_tweet(content):
   content = content.strip().replace(' ', '').replace('\n', '')
-  day = datetime.now().weekday() + 1
+  day = (datetime.now().weekday() + 1) % 7
   log = open(f'./logs/{day}.txt', 'r', encoding='utf-8').read()
   f = open(f'./logs/{day}.txt', 'w', encoding='utf-8')
   f.write(log + content + '#')
