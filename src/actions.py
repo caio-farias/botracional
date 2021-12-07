@@ -14,15 +14,6 @@ def auth(API_KEY, API_SECRET_KEY, ACCESS_TOKEN, ACCESS_TOKEN_SECRET):
     return None
 
 
-def tweet(api, message):
-  print("Tweeting content..")
-  try:
-    api.update_status(message)
-    print("Preparing to sleep.. ")
-  except Exception:
-    print("Error! Tweeting failed..")
-
-
 def update_description(api, message):
   try:
     api.update_profile(description=message)
@@ -42,8 +33,16 @@ def print_count_message(choice, count, content):
   print("-----------------------------------------------")
 
 
-def start_bot(api, tweet_count):
-  count = tweet_count
+def tweet(api, content):
+  print("Tweeting content..")
+  try:
+    api.update_status(content)
+    print("Preparing to sleep.. ")
+  except Exception:
+    print("Error! Tweeting failed..")
+
+
+def tweeting_loop(api, count):
   while(True):
     print("-----------------------------------------------")
     choice = randint(0, 1)
@@ -54,9 +53,7 @@ def start_bot(api, tweet_count):
     exec_utils.verify_tweet_existence(content)
     print_count_message(choice, count + 1, content)
     try:
-      tweet_thread = Thread(target=tweet, args=(api, content))
-      tweet_thread.start()
-      tweet_thread.join()
+      tweet(api, content)
       count += 1
       exec_utils.register_tweet(content)
       print("Sleeping... zZzZz")
@@ -64,6 +61,14 @@ def start_bot(api, tweet_count):
       print("Woke up!")
     except Exception:
       print("Error!")
+
+
+def start_bot(api, tweet_count):
+  count = tweet_count
+  tweeting_loop_thread = Thread(target=tweeting_loop, args=(api, count))
+  print(">> Started tweeting!")
+  tweeting_loop_thread.start()
+  tweeting_loop_thread.join()
 
 
 def user_info(user):
