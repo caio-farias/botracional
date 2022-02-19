@@ -2,3 +2,4 @@ botracional
 tokens.txt
 __pycache__
 logs
+.env
