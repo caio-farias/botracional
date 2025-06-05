@@ -9,6 +9,6 @@ A bot which is specialized in tweeting about Tim Maia's songs (at the "racional"
   - Racional vol.3 (2011)
 
  ### Universo em desencanto books
- 
  - Universo em desencanto vol.1 to vol.19 (of 1000 volumes written between 1935-1990) -
  https://en.wikipedia.org/wiki/Manoel_Jacintho_Coelho
+ 
