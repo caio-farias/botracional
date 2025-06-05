@@ -1,14 +1,14 @@
 # b o t - r a c i o n a l
-Este bot é especialista em tweetar versos de letras do Tim Maia(na fase racional) e frases de livros da série Universo em Desencanto. 
+A bot which is specialized in tweeting about Tim Maia's songs (at the "racional" phase) and phrases of the book series Universo em desencanto by the author Manuel Jacinto Neto.
 
-# c o n t e ú d o
- ### Discos
+# c o n t e n t
+ ### Tim Maia's Records
  
   - Racional vol.1 (1975)
   - Racional vol.2 (1976)
   - Racional vol.3 (2011)
 
- ### Livros
- 
- - Universo em desencanto vol. 1 até vol. 19
+ ### Universo em desencanto books
+ - Universo em desencanto vol.1 to vol.19 (of 1000 volumes written between 1935-1990) -
+ https://en.wikipedia.org/wiki/Manoel_Jacintho_Coelho
  
